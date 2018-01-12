@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+
+            background: linear-gradient(to right, red, orange, yellow, green, cyan, blue, purple);
+        }
+
+        textarea {
+            width: 400px;
+            height: 200px;
+            margin: 50px auto;
+            margin-left: 50%;
+            transform: translate(-50%);
+        }
+
+        div {
+            width: 400px;
+            margin-left: 50%;
+            transform: translate(-50%);
+
+        }
+    </style>
+</head>
+<body>
+<textarea id="show"></textarea>
+<div></div>
+</body>
+<script>
+    var txt = document.getElementById('show');
+    txt.onblur = function () {
+        var text = document.querySelector('div');
+        var str = txt.value;
+        var arr = [];
+        for (var i = 0; i < str.length; i++) {
+            arr.push(str[i])
+        }
+        var text1 = '';
+        var num = 0;
+        var timer = setInterval(function () {
+            if (num < arr.length) {
+                text1 += arr[num];
+                text.innerHTML = text1;
+                num++;
+            } else {
+                clearInterval(timer)
+            }
+        }, 200);
+        if (str == 0) {
+            text.innerHTML = ''
+        }
+    };
+
+
+</script>
+</html>
